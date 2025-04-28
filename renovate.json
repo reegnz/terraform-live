@@ -1,5 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "enabledManagers": [
+    "terraform",
+    "custom.regex"
+  ],
   "packageRules": [
     {
       "description": "my terraform modules",
@@ -16,6 +20,21 @@
       "registryUrls": [
         "https://registry.opentofu.org"
       ]
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "tenv .opentofu-version manager",
+      "fileMatch": [
+        "(^|/)\\.opentofu-version$"
+      ],
+      "matchStrings": [
+        "(?<currentValue>.*)"
+      ],
+      "packageNameTemplate": "opentofu/opentofu",
+      "depNameTemplate": "opentofu",
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
