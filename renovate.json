@@ -26,8 +26,8 @@
     {
       "customType": "regex",
       "description": "tenv .opentofu-version manager",
-      "fileMatch": [
-        "(^|/)\\.opentofu-version$"
+      "managerFilePatterns": [
+        "/(^|/)\\.opentofu-version$/"
       ],
       "matchStrings": [
         "(?<currentValue>.*)"
